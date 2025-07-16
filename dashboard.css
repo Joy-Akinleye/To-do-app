@@ -11,7 +11,6 @@
 body {
     padding: 0;
     margin: 0;
-    font-size: 16px;
     height: 100vh;
     overflow: hidden;
 }
@@ -28,12 +27,10 @@ body {
 .head-contain h1 {
     color: var(--base-blue);
     text-transform: uppercase;
-
 }
 
 .head-contain h1 span {
     color: var(--base-brown);
-
 }
 
 .search {
@@ -44,7 +41,7 @@ body {
 }
 
 .search>input {
-    width: 37.5rem;
+    width: 40rem;
     border: 0;
     outline: none;
     padding: 0 0.625rem;
@@ -98,7 +95,7 @@ body {
 .menu {
     width: 25%;
     max-width: 15.625rem;
-    height: 37.2rem;
+    height: 36rem;
     background-color: var(--base-brown);
     color: white;
     display: flex;
@@ -106,17 +103,17 @@ body {
     text-align: center;
     justify-content: center;
     align-items: center;
-    /* padding-top: 60px; */
+    margin-block-start: 0.93em;
     border-radius: 0 10px 10px 0;
 }
 
 .avatar {
     background-color: white;
     border-radius: 6.25rem;
+    position: relative;
     width: 6.25rem;
-    top: -50px;
-    left: 50%;
-    transform: translate(-50%);
+    top: -55px;
+    margin-top: 10px;
 }
 
 .avatar img {
@@ -125,22 +122,42 @@ body {
     height: 100px;
 }
 
-ul li:last-child {
-    justify-self: flex-end;
+.username {
+    position: relative;
+    top: -3.8em;
+}
+
+.email {
+    position: relative;
+    top: -6.3em;
+}
+
+ul {
+    position: relative;
+    top: -7.3em;
+    padding: 0;
 }
 
 .menubutton {
     list-style: none;
     display: flex;
     flex-direction: row;
-    width: 14.375rem;
-    padding: 0.3125rem;
-    margin: 0.3125rem 0;
+    width: 12.3rem;
+    padding: 0.5em 0.4em;
+    margin: 0.3125em 0;
     cursor: pointer;
 }
 
+ul li:last-child {
+    justify-self: flex-end;
+    position: relative;
+    top: 8.7em;
+    margin-bottom: 1%;
+}
+
 .menubutton:hover {
-    background-color: aqua;
+    border-radius: 0.625rem;
+    background-color: var(--base-blue);
 }
 
 .menubutton span {
@@ -149,6 +166,18 @@ ul li:last-child {
 
 .main {
     width: 72%;
-    margin: 0 auto;
-    background-color: var(--base-brown);
+    height: 36rem;
+    margin: 0.98em auto 0;
+    /* background-color: var(--base-brown); */
+}
+
+.greet {
+    margin: 0;
+    /* background-color: pink; */
+}
+
+.greet h1 {
+    font-size: 2.3rem;
+    margin: 0;
+    font-weight: 400;
 }

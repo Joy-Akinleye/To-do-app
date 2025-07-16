@@ -15,11 +15,12 @@
 <body>
     <div class="container">
         <div class="image">
-            <img src="./images/welcome.png" alt="" width="500px" height="500px">
+            <img src="./images/welcome.png" alt="Welcome image" class="welcome-img" width="500px" height="500px">
         </div>
 
         <div class="sign-up">
-            <form action="submit">
+            <form class="form1" novalidate>
+                <!-- novalidate allows me to run validation with JS -->
                 <h1>Sign Up</h1>
                 <div class="user firstname">
                     <i class="fa-solid fa-user-pen"></i>
@@ -47,15 +48,17 @@
                 </div>
                 <div class="check">
                     <label>
-                        <input type="checkbox" name="terms" required>
+                        <input type="checkbox" class="terms" name="terms" required>
                         I agree to all terms
                     </label>
                 </div>
-                <button type="button">Register</button>
+                <button type="submit" id="regis-btn">Register</button>
+                <div class="form-error"></div> <!-- Error message goes here -->
                 <p>Already have an account? <a href="./login.html">Sign in</a></p>
             </form>
         </div>
     </div>
+    <script src="./script.js"></script>
 </body>
 
 </html>

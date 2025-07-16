@@ -39,16 +39,26 @@ button:hover,
 button:focus {
     color: var(--white);
     background-color: var(--base-blue);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
     cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 a {
     text-decoration: none;
+    color: var(--base-brown);
 }
 
 a:hover,
 a:focus {
-    color: red;
+    color: var(--base-blue);
+    text-decoration: underline;
 }
 
 .container {
@@ -78,14 +88,55 @@ h1 {
     padding: 0 0.625rem;
 }
 
-input,
-input:focus {
-    border: none;
-    outline: none;
+.user:hover,
+.user:focus {
+    box-shadow: 0 4px 8px #f7d29e;
+    cursor: pointer;
+
 }
 
-
+.user input,
+.user input:focus {
+    border: none;
+    outline: none;
+    width: 23rem;
+    height: 1.3rem;
+    font-size: 1rem;
+}
+/* For error message on the form */
+.form-error {
+    color: red;
+    /* font-size: 0.875rem; */
+    margin-top: 0.5rem;
+    display: none;
+}
+/* if user input is incorrect */
+.incorrect {
+    border: red solid 1px;
+    color: red;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
+}
+/* if user input is correct */
+.correct{
+    border: green solid 1px;
+    color: green;
+    box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2);
+}
+/* If terms is not checked */
+.incorrect-check{
+    /* border: red solid 1px; */
+    color: red;
+}
+/* If terms is checked */
+.correct-check{
+    /* border: green solid 1px; */
+    color: green;
+}
 /* REGISTER PAGE */
+.welcome-img {
+    border-top-left-radius: 1.25em;
+}
+
 .image {
     flex: 1;
 }
@@ -94,7 +145,7 @@ input:focus {
     flex: 1;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    color: var(--base-blue);
     padding: 0.625rem 1.25rem;
 }
 
@@ -109,6 +160,7 @@ input:focus {
     flex-direction: column;
     flex-wrap: wrap;
     width: 50%;
+    color: var(--base-blue);
     padding: 0.625rem 1.25rem;
 }
 
