@@ -3,6 +3,10 @@
 This is a web application made created by Ayomide and Kendrick with the use of HTML, CSS and Javascript.
 Project begins: 2nd of July, 2025
 
+
+SIGN-IN / REGISTER
+SIGN-UP / LOGIN
+
 ## Style Guide
 
 ### colors

@@ -1,4 +1,4 @@
-const form = document.querySelector(".form1");
+const signup_form = document.querySelector(".sign-up-form");
 const firstname = document.querySelector(".firstname input");
 const lastname = document.querySelector(".lastname input");
 const username = document.querySelector(".username input");
@@ -7,14 +7,30 @@ const password = document.querySelector(".password input");
 const confirmPassword = document.querySelector(".confirm input");
 const terms = document.querySelector(".terms");
 const errorBox = document.querySelector(".form-error");
+// variables for login page
+const signin_form = document.querySelector(".sign-in-form")
+const errorBox2 = document.querySelector(".error2")
+const login_name = document.querySelector(".login-name input");
+const login_code = document.querySelector(".login-code input")
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
 
-    checkInputs();
-});
+// Only run if Sign up form exists
+if (signup_form) {
+    signup_form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        signupValidation()
+    });
+}
 
-const checkInputs = () => {
+if (signin_form) {
+    signin_form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        loginValidation()
+    });
+}
+
+// Signup validation code
+const signupValidation = () => {
     // Get the values from the input fields
     const firstnameValue = firstname.value.trim();
     const lastnameValue = lastname.value.trim();
@@ -66,21 +82,49 @@ const checkInputs = () => {
         showFormSuccess(confirmPassword)
     }
 
+    if (passwordValue !== confirmPasswordValue) {
+        showFormError(password, "Passwords do not match.");
+        showFormError(confirmPassword, "Passwords do not match.");
+        return;
+    }
+
     if (!terms.checked) {
-        showCheckboxError(terms, "You must agree to the terms before registering.");
+        showCheckboxError(terms);
         return;
     } else {
         showCheckboxSuccess(terms)
     }
 
-    if (passwordValue !== confirmPasswordValue) {
-        showFormError(password, "Passwords do not match.");
-        showFormError(confirmPassword, "Passwords do not match.");
+    signup_form.classList.add("submitted")
 
-        return;
-    }
+    console.log("Signup form is valid")
 };
 
+// Login form validation code
+const loginValidation = () => {
+    const login_nameValue = login_name.value.trim();
+    const login_codeValue = login_code.value.trim();
+
+    if (login_nameValue === "") {
+        showLoginError(login_name, "Username cannot be blank")
+    }
+    else {
+        showLoginSuccess(login_name)
+    }
+
+    if (login_codeValue === "") {
+        showLoginError(login_code, "Password cannot be blank")
+    } else {
+        showLoginSuccess(login_code)
+    }
+
+    signin_form.classList.add("submitted")
+
+    console.log("Login form validated ✅");
+}
+
+
+// HELPER FUNCTIONS
 const showFormError = (input, message) => {
     const user = input.parentElement;
     errorBox.textContent = message;
@@ -99,16 +143,32 @@ const showFormSuccess = (input) => {
 
 const showCheckboxError = (input, message) => {
     const check = input.parentElement
-    errorBox.textContent = message;
-    errorBox.style.display = "block";
+    // errorBox.textContent = message;
+    // errorBox.style.display = "block";
     check.classList.remove("correct-check")
     check.classList.add("incorrect-check")
 }
 
 const showCheckboxSuccess = (input) => {
     const check = input.parentElement
-    errorBox.textContent = "";
-    errorBox.style.display = "none";
+    // errorBox.textContent = "";
+    // errorBox.style.display = "none";
     check.classList.remove("incorrect-check")
     check.classList.add("correct-check")
+}
+
+const showLoginError = (input, message) => {
+    const user = input.parentElement;
+    errorBox2.textContent = message;
+    errorBox2.style.display = "block";
+    user.classList.remove("correct");
+    user.classList.add("incorrect");
+}
+
+const showLoginSuccess = (input) => {
+    const user = input.parentElement; // .user
+    errorBox2.textContent = "";
+    errorBox2.style.display = "none";
+    user.classList.remove("incorrect");
+    user.classList.add("correct");
 }

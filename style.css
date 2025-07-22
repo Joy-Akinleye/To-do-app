@@ -103,10 +103,15 @@ h1 {
     height: 1.3rem;
     font-size: 1rem;
 }
+
+form.submitted .user:hover {
+    border-color: initial;
+    box-shadow: none;
+    cursor: default;
+}
 /* For error message on the form */
 .form-error {
     color: red;
-    /* font-size: 0.875rem; */
     margin-top: 0.5rem;
     display: none;
 }
@@ -124,12 +129,10 @@ h1 {
 }
 /* If terms is not checked */
 .incorrect-check{
-    /* border: red solid 1px; */
     color: red;
 }
 /* If terms is checked */
 .correct-check{
-    /* border: green solid 1px; */
     color: green;
 }
 /* REGISTER PAGE */

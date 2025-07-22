@@ -15,34 +15,36 @@
 <body>
     <div class="container page2">
         <div class="sign-in">
-            <form action="submit" class="form2">
+            <form action="submit" class="sign-in-form" novalidate>
                 <h1>Sign in</h1>
-                <p class="error">Error message goes here</p>
-                <div class="user username">
+                <div class="error2"></div> <!-- Error message goes here -->
+                <div class="user login-name">
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" placeholder="Enter Username" required>
+                    <input type="text" placeholder="Enter your username" required>
                 </div>
-                <div class="user password">
+                <div class="user login-code">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="text" placeholder="Enter Password" required>
+                    <input type="password" placeholder="Enter your password" required>
                 </div>
-            </form>
-            <div class="check">
-                <label>
-                    <input type="checkbox" name="remember">
-                    Remember me
-                </label>
-            </div>
-            <button type="button">Login</button>
-            <p>Or, login with</p>
-            <p>Don't have an account? <a href="./register.html">Create One</a> </p>
+                <div class="check2">
+                    <label>
+                        <input type="checkbox" name="remember">
+                        Remember me
+                    </label>
+                </div>
+                <button type="submit">Login</button>
+                <p>Or, login with</p>
+                <p>Don't have an account? <a href="./register.html">Create One</a> </p>
         </div>
+        </form>
+
 
         <div class="image2">
-            <img src="./images/photo3.png" alt="" width="500px" height="400px">
+            <img src="./images/sign-in_uva0.png" alt="" width="500px" height="400px">
         </div>
 
     </div>
+    <script src="./script.js"></script>
 </body>
 
 </html>
