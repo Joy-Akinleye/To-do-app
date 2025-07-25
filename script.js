@@ -64,12 +64,22 @@ const signupValidation = () => {
     if (emailValue === "") {
         showFormError(email, "Email cannot be empty.")
         return;
+    } else if (!isEmail(emailValue)) {
+        showFormError(email, "Email is invalid!")
+        return
     } else {
         showFormSuccess(email)
     }
 
     if (passwordValue === "") {
         showFormError(password, "Password cannot be empty.")
+        confirmPassword.parentElement.classList.remove("correct");
+        confirmPassword.parentElement.classList.add("incorrect");
+        return;
+    } else if (!validPassword(passwordValue)) {
+        showFormError(password, "Password should contain an uppercase letter, a lowercase letter, a number and a special character")
+        confirmPassword.parentElement.classList.remove("correct");
+        confirmPassword.parentElement.classList.add("incorrect");
         return;
     } else {
         showFormSuccess(password)
@@ -78,14 +88,14 @@ const signupValidation = () => {
     if (confirmPasswordValue === "") {
         showFormError(confirmPassword, "Please confirm your password.")
         return;
-    } else {
-        showFormSuccess(confirmPassword)
-    }
-
-    if (passwordValue !== confirmPasswordValue) {
+    } else if (passwordValue !== confirmPasswordValue) {
         showFormError(password, "Passwords do not match.");
-        showFormError(confirmPassword, "Passwords do not match.");
+        confirmPassword.parentElement.classList.remove("correct");
+        confirmPassword.parentElement.classList.add("incorrect");
         return;
+    }
+    else {
+        showFormSuccess(confirmPassword)
     }
 
     if (!terms.checked) {
@@ -171,4 +181,12 @@ const showLoginSuccess = (input) => {
     errorBox2.style.display = "none";
     user.classList.remove("incorrect");
     user.classList.add("correct");
+}
+
+const isEmail = (email) => {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+const validPassword = (password) => {
+    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/.test(password);
 }
